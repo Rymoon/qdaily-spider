@@ -9,11 +9,11 @@ import requests
 import time
 import json
 from bs4 import BeautifulSoup
-
+    
 
 url = "http://www.qdaily.com/articles/"
 now_id = 1
-end_id = 53911
+end_id = 64016
 
 
 def create():
