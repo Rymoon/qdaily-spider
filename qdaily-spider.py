@@ -13,8 +13,7 @@ from bs4 import BeautifulSoup
 
 url = "http://www.qdaily.com/articles/"
 now_id = 1
-end_id = 64016
-
+end_id = 64806
 
 def create():
      # 创建数据库
@@ -35,6 +34,7 @@ def create():
 
 
 def func(id=0):
+ #   global soup
     if id == 0:
         print("id=0,error!")
         return
@@ -46,7 +46,7 @@ def func(id=0):
         if "页面出错" in demo:
             return
         soup = BeautifulSoup(demo, "html.parser")
-        sharenum = int(soup.find('span', 'num').string)
+        sharenum = int(soup.find('span', 'num').attrs['data-origincount'])
         title = soup.find('h2', 'title').string
         date = soup.find(
             'span', 'date smart-date').attrs['data-origindate'][:-15]
